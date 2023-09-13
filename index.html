@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>招待状</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            🌟🌟当選おめでとう!!🌟🌟
+        </div>
+        <div class="content">
+            「いばら姫は眠らない」、あなた招待！<br>
+            あなたが幸運！<br>
+            一人目の当選者、あなたです！<br>
+            是非來る、我待つ！
+        </div>
+        <div class="footer">
+            このオファーは数日中に终了します！今すぐ参加して、未来を变えるチャンスを手に入れましょう
+        </div>
+        <div class="details">
+            📅日時: 未定<br>
+            📍場所: 1年F组
+        </div>
+        <div class="countdown" id="countdown">
+            オファー終了まで: 00:00:00
+        </div>
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+    </div>
+
+    <script>
+        // カウントダウンタイマーの設定
+        const endTime = new Date(2023, 8, 18, 16, 0, 0).getTime(); // 2023年9月18日16時を設定
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = endTime - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown").innerHTML = "オファー終了まで: " + days + "日 " + hours + "時間 " + minutes + "分 " + seconds + "秒";
+
+            if (distance < 0) {
+                clearInterval(interval);
+                document.getElementById("countdown").innerHTML = "オファーは終了しました";
+            }
+        }
+
+        const interval = setInterval(updateCountdown, 1000);
+
+        function updateProgressBar() {
+            const now = new Date().getTime();
+            const distance = endTime - now;
+            const totalDuration = 72 * 60 * 60 * 1000; // 72時間
+            const progress = 100 - (distance / totalDuration) * 100;
+
+            document.getElementById("progressBar").style.width = progress + "%";
+        }
+
+      setInterval(updateProgressBar, 1000);
+    </script>
+</body>
+</html>
