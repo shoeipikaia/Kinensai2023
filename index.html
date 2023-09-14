@@ -34,26 +34,38 @@
 
     <script>
         // カウントダウンタイマーの設定
-        const endTime = new Date(2023, 8, 18, 16, 0, 0).getTime(); // 2023年9月18日16時を設定
+const endTimes = [
+    new Date(2023, 8, 17, 12, 0, 0).getTime(),
+    new Date(2023, 8, 17, 15, 0, 0).getTime(),
+    new Date(2023, 8, 18, 11, 45, 0).getTime(),
+    new Date(2023, 8, 18, 15, 30, 0).getTime()
+];
 
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const distance = endTime - now;
+let currentEndTimeIndex = 0;
 
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+function updateCountdown() {
+    const now = new Date().getTime();
+    let distance = endTimes[currentEndTimeIndex] - now;
 
-            document.getElementById("countdown").innerHTML = "オファー終了まで: " + days + "日 " + hours + "時間 " + minutes + "分 " + seconds + "秒";
-
-            if (distance < 0) {
-                clearInterval(interval);
-                document.getElementById("countdown").innerHTML = "オファーは終了しました";
-            }
+    if (distance < 0) {
+        currentEndTimeIndex++;
+        if (currentEndTimeIndex >= endTimes.length) {
+            clearInterval(interval);
+            document.getElementById("countdown").innerHTML = "オファーは終了しました";
+            return;
         }
+        distance = endTimes[currentEndTimeIndex] - now;
+    }
 
-        const interval = setInterval(updateCountdown, 1000);
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("countdown").innerHTML = "オファー終了まで: " + days + "日 " + hours + "時間 " + minutes + "分 " + seconds + "秒";
+}
+
+const interval = setInterval(updateCountdown, 1000);
 
         function updateProgressBar() {
             const now = new Date().getTime();
