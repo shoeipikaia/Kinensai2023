@@ -62,7 +62,7 @@ function updateCountdown() {
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    document.getElementById("countdown").innerHTML = "オファー終了まで: " + days + "日 " + hours + "時間 " + minutes + "分 " + seconds + "秒";
+    document.getElementById("countdown").innerHTML = "次のオファー開始まで: " + days + "日 " + hours + "時間 " + minutes + "分 " + seconds + "秒";
 }
 
 const interval = setInterval(updateCountdown, 1000);
