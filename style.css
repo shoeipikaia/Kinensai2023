@@ -29,14 +29,14 @@ body {
     border-radius: 10px;
     margin-bottom: 20px;
     animation: blink 1s infinite;
-    font-family : "Microsoft YaHei","Lantinghei SC",STHeitiSC-Light,"PingFang SC","WenQuanYi Zen Hei","WenQuanYi Micro Hei",Simsun,"Helvetica Neue",Helvetica,Arial,sans-serif
+    font-family : "Microsoft YaHei","Lantinghei SC",'Roboto', 'San Francisco',"PingFang SC","WenQuanYi Zen Hei","WenQuanYi Micro Hei",Simsun,"Helvetica Neue",Helvetica,Arial,sans-serif
 }
 
 .content {
     text-align: center;
     font-size: 20px;
     margin-bottom: 20px;
-    font-family : "Microsoft YaHei","Lantinghei SC",STHeitiSC-Light,"PingFang SC","WenQuanYi Zen Hei","WenQuanYi Micro Hei",Simsun,"Helvetica Neue",Helvetica,Arial,sans-serif
+    font-family : "Microsoft YaHei","Lantinghei SC",'Roboto', 'San Francisco',"PingFang SC","WenQuanYi Zen Hei","WenQuanYi Micro Hei",Simsun,"Helvetica Neue",Helvetica,Arial,sans-serif
 }
 
 .footer {
@@ -46,7 +46,7 @@ body {
     padding: 20px;
     background-color: #ff7650;
     border-radius: 10px;
-    font-family : "Microsoft YaHei","Lantinghei SC",STHeitiSC-Light,"PingFang SC","WenQuanYi Zen Hei","WenQuanYi Micro Hei",Simsun,"Helvetica Neue",Helvetica,Arial,sans-serif
+    font-family : "Microsoft YaHei","Lantinghei SC",'Roboto', 'San Francisco', "PingFang SC","WenQuanYi Zen Hei","WenQuanYi Micro Hei",Simsun,"Helvetica Neue",Helvetica,Arial,sans-serif
 }
 
 .details {
@@ -54,7 +54,7 @@ body {
     font-size: 18px;
     padding: 10px;
     margin-top: 20px;
-    font-family : "Microsoft YaHei","Lantinghei SC",STHeitiSC-Light,"PingFang SC","WenQuanYi Zen Hei","WenQuanYi Micro Hei",Simsun,"Helvetica Neue",Helvetica,Arial,sans-serif
+    font-family : "Microsoft YaHei","Lantinghei SC",'Roboto', 'San Francisco', "PingFang SC","WenQuanYi Zen Hei","WenQuanYi Micro Hei",Simsun,"Helvetica Neue",Helvetica,Arial,sans-serif
 }
 
 .countdown {
@@ -63,7 +63,7 @@ body {
     font-weight: bold;
     color: red;
     margin-top: 20px;
-    font-family : "Microsoft YaHei","Lantinghei SC",STHeitiSC-Light,"PingFang SC","WenQuanYi Zen Hei","WenQuanYi Micro Hei",Simsun,"Helvetica Neue",Helvetica,Arial,sans-serif
+    font-family : "Microsoft YaHei","Lantinghei SC",'Roboto', 'San Francisco', "PingFang SC","WenQuanYi Zen Hei","WenQuanYi Micro Hei",Simsun,"Helvetica Neue",Helvetica,Arial,sans-serif
 }
 
 .progress-container {
