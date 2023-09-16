@@ -11,7 +11,7 @@ body {
     padding: 0;
 }
 
-.container {
+.base {
     max-width: 600px;
     margin: 50px auto;
     background-color: #ffe30c;
@@ -28,7 +28,7 @@ body {
     background-color: #ff1313;
     border-radius: 10px;
     margin-bottom: 20px;
-    animation: blink 1s infinite;
+    animation: blink 1.53s infinite;
     font-family : "Microsoft YaHei","Lantinghei SC",'Roboto', 'San Francisco',"PingFang SC","WenQuanYi Zen Hei","WenQuanYi Micro Hei",Simsun,"Helvetica Neue",Helvetica,Arial,sans-serif
 }
 
@@ -94,5 +94,35 @@ body {
     width: 100%;
     height: 100%;
     z-index: 99999;
-  }
-  
+    pointer-events: none;
+}
+
+:root {
+    --dynamic-gap: 20px;  /* 初期値として設定。後でJavaScriptで上書きされます */
+    --dynamic-image-size: 100px;
+}
+
+.gift-box-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--dynamic-gap);
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    margin: 100px auto;
+}
+
+.gift-box img{
+    width: var(--dynamic-image-size);
+    height: var(--dynamic-image-size);
+    cursor: pointer;
+    border-radius: 10%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.gift-box img:hover {
+    transform: scale(1.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+
