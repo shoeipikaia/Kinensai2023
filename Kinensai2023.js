@@ -1,54 +1,3 @@
-// ページの読み込み時にparticles.jsを初期化
-window.addEventListener('load', function() {
-    particlesJS("particles-js", {
-        particles: {
-            number: { value: 450, density: { enable: true, value_area: 1200 } },
-            color: { value: ["#ff0000", "#00ff00", "#0000ff", "#ffff00", "#ff00ff", "#00ffff"] },
-            shape: {
-            type: "edge",
-            stroke: { width: 0, color: "#000000" },
-            polygon: { nb_sides: 4 }
-            },
-            opacity: { value: 0.7, random: true, anim: { enable: true, speed: 1, opacity_min: 0.1, sync: false } },
-            size: { value: 8, random: true, anim: { enable: true, speed: 3, size_min: 2, sync: false } },
-            line_linked: { enable: false },
-            move: { 
-                enable: true, 
-                speed: 5, 
-                direction: "bottom", 
-                random: true, 
-                straight: false, 
-                out_mode: "out", 
-                bounce: false, 
-                attract: { enable: false, rotateX: 600, rotateY: 1200 } 
-            }
-        },
-        interactivity: {
-            detect_on: "canvas",
-            events: {
-            onhover: { enable: false },
-            onclick: { enable: false },
-            resize: true
-            }
-        },
-        retina_detect: false
-        });
-    // 3秒後にパーティクルの数を徐々に減少させる処理を開始
-    setTimeout(function() {
-        const decreaseInterval = setInterval(function() {
-            if (window.pJSDom && window.pJSDom.length) {
-                const particlesArray = window.pJSDom[0].pJS.particles.array;
-                if (particlesArray.length > 0) {
-                    particlesArray.pop();  // パーティクルを1つ削除
-                } else {
-                    clearInterval(decreaseInterval);  // すべてのパーティクルが削除されたら、インターバルをクリア
-                }
-            }
-        }, 10);  // 10ミリ秒ごとに実行
-    }, 800);
-});
-
-
 document.querySelectorAll('*').forEach(element => {
     const nodes = Array.from(element.childNodes);
     nodes.forEach(node => {
@@ -235,8 +184,3 @@ function showContainer() {
         retina_detect: true
         });
 }
-
-
-
-
-
