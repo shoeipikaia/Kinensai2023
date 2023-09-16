@@ -29,14 +29,22 @@ body {
     border-radius: 10px;
     margin-bottom: 20px;
     animation: blink 1.53s infinite;
-    font-family : "Microsoft YaHei","Lantinghei SC",'Roboto', 'San Francisco',"PingFang SC","WenQuanYi Zen Hei","WenQuanYi Micro Hei",Simsun,"Helvetica Neue",Helvetica,Arial,sans-serif
+    font-family : serif
 }
 
 .content {
     text-align: center;
+    font-weight: bold;
     font-size: 20px;
     margin-bottom: 20px;
-    font-family : "Microsoft YaHei","Lantinghei SC",'Roboto', 'San Francisco',"PingFang SC","WenQuanYi Zen Hei","WenQuanYi Micro Hei",Simsun,"Helvetica Neue",Helvetica,Arial,sans-serif
+    font-family : serif
+}
+
+.gift-content {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 20px;
+    font-family : 'Noto Sans JP' ,serif
 }
 
 .footer {
@@ -46,7 +54,7 @@ body {
     padding: 20px;
     background-color: #ff7650;
     border-radius: 10px;
-    font-family : "Microsoft YaHei","Lantinghei SC",'Roboto', 'San Francisco', "PingFang SC","WenQuanYi Zen Hei","WenQuanYi Micro Hei",Simsun,"Helvetica Neue",Helvetica,Arial,sans-serif
+    font-family : 'Noto Sans JP' , sans-serif;
 }
 
 .details {
@@ -54,7 +62,7 @@ body {
     font-size: 18px;
     padding: 10px;
     margin-top: 20px;
-    font-family : "Microsoft YaHei","Lantinghei SC",'Roboto', 'San Francisco', "PingFang SC","WenQuanYi Zen Hei","WenQuanYi Micro Hei",Simsun,"Helvetica Neue",Helvetica,Arial,sans-serif
+    font-family : serif
 }
 
 .countdown {
@@ -63,13 +71,36 @@ body {
     font-weight: bold;
     color: red;
     margin-top: 20px;
-    font-family : "Microsoft YaHei","Lantinghei SC",'Roboto', 'San Francisco', "PingFang SC","WenQuanYi Zen Hei","WenQuanYi Micro Hei",Simsun,"Helvetica Neue",Helvetica,Arial,sans-serif
+    font-family : serif
+}
+
+.gift-countdown {
+    color: red;
+    font-size: 24px;
+    text-align: center;
+    font-family : serif
+}
+
+.gift-progress-container {
+    width: 100%;
+    background-color: #f3f3f3;
+    margin-top: 10px;
 }
 
 .progress-container {
     width: 100%;
     background-color: #f3f3f3;
     margin-top: 20px;
+}
+
+.gift-progress-bar {
+    width: 0;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    color: white;
+    background-color: #ff0000;
+    animation: progressAnimation 1s linear infinite; /* 1秒でアニメーションを繰り返す */
 }
 
 .progress-bar {
@@ -88,6 +119,18 @@ body {
 }
 
 #particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99999;
+    pointer-events: none;
+}
+
+#particles-js-2 {
     position: absolute;
     top: 0;
     left: 0;
@@ -109,7 +152,7 @@ body {
     justify-content: center;
     align-items: center;
     width: fit-content;
-    margin: 100px auto;
+    margin: 40px auto 40px auto;
 }
 
 .gift-box img{
@@ -125,4 +168,19 @@ body {
     transition: transform 0.3s ease-in-out;
 }
 
+.gift-header {
+    text-align: center;
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 20px;
+    background-color: #0011ff;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    animation: blink 0.3s infinite;
+    font-family : serif
+}
 
+.kanji {
+    font-family: 'Noto Sans SC', sans-serif;
+}
