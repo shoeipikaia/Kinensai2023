@@ -1,4 +1,4 @@
-document.querySelectorAll('*').forEach(element => {
+document.querySelector('body').querySelectorAll('*').forEach(element => {
     const nodes = Array.from(element.childNodes);
     nodes.forEach(node => {
         if (node.nodeType === 3) {  // テキストノードの場合
@@ -14,6 +14,7 @@ document.querySelectorAll('*').forEach(element => {
         }
     });
 });
+
 
 
 // Function to set the images' src attributes on page load
