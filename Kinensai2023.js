@@ -1,3 +1,72 @@
+// ページの読み込み時にparticles.jsを初期化
+window.addEventListener('load', function() {
+    particlesJS("particles-js", {
+        particles: {
+            number: { value: 450, density: { enable: true, value_area: 1200 } },
+            color: { value: ["#ff0000", "#00ff00", "#0000ff", "#ffff00", "#ff00ff", "#00ffff"] },
+            shape: {
+            type: "edge",
+            stroke: { width: 0, color: "#000000" },
+            polygon: { nb_sides: 4 }
+            },
+            opacity: { value: 0.7, random: true, anim: { enable: true, speed: 1, opacity_min: 0.1, sync: false } },
+            size: { value: 8, random: true, anim: { enable: true, speed: 3, size_min: 2, sync: false } },
+            line_linked: { enable: false },
+            move: { 
+                enable: true, 
+                speed: 5, 
+                direction: "bottom", 
+                random: true, 
+                straight: false, 
+                out_mode: "out", 
+                bounce: false, 
+                attract: { enable: false, rotateX: 600, rotateY: 1200 } 
+            }
+        },
+        interactivity: {
+            detect_on: "canvas",
+            events: {
+            onhover: { enable: false },
+            onclick: { enable: false },
+            resize: true
+            }
+        },
+        retina_detect: false
+        });
+    // 3秒後にパーティクルの数を徐々に減少させる処理を開始
+    setTimeout(function() {
+        const decreaseInterval = setInterval(function() {
+            if (window.pJSDom && window.pJSDom.length) {
+                const particlesArray = window.pJSDom[0].pJS.particles.array;
+                if (particlesArray.length > 0) {
+                    particlesArray.pop();  // パーティクルを1つ削除
+                } else {
+                    clearInterval(decreaseInterval);  // すべてのパーティクルが削除されたら、インターバルをクリア
+                }
+            }
+        }, 10);  // 10ミリ秒ごとに実行
+    }, 800);
+});
+
+
+document.querySelectorAll('*').forEach(element => {
+    const nodes = Array.from(element.childNodes);
+    nodes.forEach(node => {
+        if (node.nodeType === 3) {  // テキストノードの場合
+            const replacedText = node.nodeValue.replace(/([\u4E00-\u9FFF]+)/g, '<span class="kanji">$1</span>');
+            if (replacedText !== node.nodeValue) {
+                const div = document.createElement('div');
+                div.innerHTML = replacedText;
+                while (div.firstChild) {
+                    node.parentNode.insertBefore(div.firstChild, node);
+                }
+                node.parentNode.removeChild(node);
+            }
+        }
+    });
+});
+
+
 // Function to set the images' src attributes on page load
 function setImagesSrc() {
     const images = document.querySelectorAll('.gift-box img');
@@ -11,6 +80,28 @@ function setImagesSrc() {
         }
     });
 }
+
+let remainingSeconds = 100;
+
+function updateCountdownDisplay() {
+    document.getElementById('giftCountdown').textContent = `権利失効まで殘り${remainingSeconds}秒`;
+}
+
+function startCountdown() {
+    updateCountdownDisplay();
+    const countdownInterval = setInterval(() => {
+        remainingSeconds -= 1;
+        updateCountdownDisplay();
+
+        if (remainingSeconds <= 0) {
+            clearInterval(countdownInterval);
+        }
+    }, 1000);
+}
+
+// Start the countdown when the page loads
+window.addEventListener('load', startCountdown);
+
 
 // Call the function on page load
 window.addEventListener('load', setImagesSrc);
@@ -83,41 +174,9 @@ function updateProgressBar() {
     document.getElementById("progressBar").style.width = progress + "%";
 }
 
-    setInterval(updateProgressBar, 1000);
+setInterval(updateProgressBar, 1000);
 
-particlesJS("particles-js", {
-particles: {
-    number: { value: 450, density: { enable: true, value_area: 1200 } },
-    color: { value: ["#ff0000", "#00ff00", "#0000ff", "#ffff00", "#ff00ff", "#00ffff"] },
-    shape: {
-    type: "edge",
-    stroke: { width: 0, color: "#000000" },
-    polygon: { nb_sides: 4 }
-    },
-    opacity: { value: 0.7, random: true, anim: { enable: true, speed: 1, opacity_min: 0.1, sync: false } },
-    size: { value: 8, random: true, anim: { enable: true, speed: 3, size_min: 2, sync: false } },
-    line_linked: { enable: false },
-    move: { 
-        enable: true, 
-        speed: 5, 
-        direction: "bottom", 
-        random: true, 
-        straight: false, 
-        out_mode: "out", 
-        bounce: false, 
-        attract: { enable: false, rotateX: 600, rotateY: 1200 } 
-    }
-},
-interactivity: {
-    detect_on: "canvas",
-    events: {
-    onhover: { enable: false },
-    onclick: { enable: false },
-    resize: true
-    }
-},
-retina_detect: true
-});
+
 
 // Run adjustLayout on page load and on window resize
 window.addEventListener('load', adjustLayout);
@@ -141,8 +200,43 @@ function adjustLayout() {
 
 function showContainer() {
     document.querySelector('.container').style.display = 'block';
-    document.querySelector('.gift-box-grid').style.display = 'none';
+    document.querySelector('.gift-container').style.display = 'none';
+    particlesJS("particles-js-2", {
+        particles: {
+            number: { value: 450, density: { enable: true, value_area: 1200 } },
+            color: { value: ["#ff0000", "#00ff00", "#0000ff", "#ffff00", "#ff00ff", "#00ffff"] },
+            shape: {
+            type: "edge",
+            stroke: { width: 0, color: "#000000" },
+            polygon: { nb_sides: 4 }
+            },
+            opacity: { value: 0.7, random: true, anim: { enable: true, speed: 1, opacity_min: 0.1, sync: false } },
+            size: { value: 8, random: true, anim: { enable: true, speed: 3, size_min: 2, sync: false } },
+            line_linked: { enable: false },
+            move: { 
+                enable: true, 
+                speed: 5, 
+                direction: "bottom", 
+                random: true, 
+                straight: false, 
+                out_mode: "out", 
+                bounce: false, 
+                attract: { enable: false, rotateX: 600, rotateY: 1200 } 
+            }
+        },
+        interactivity: {
+            detect_on: "canvas",
+            events: {
+            onhover: { enable: false },
+            onclick: { enable: false },
+            resize: true
+            }
+        },
+        retina_detect: true
+        });
 }
+
+
 
 
 
