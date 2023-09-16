@@ -20,7 +20,7 @@ document.querySelector('body').querySelectorAll('*').forEach(element => {
 // Function to set the images' src attributes on page load
 function setImagesSrc() {
     const images = document.querySelectorAll('.gift-box img');
-    const availableImages = ["images/頭囚正方形.png", "images/カイン.png"];
+    const availableImages = ["images/頭囚正方形.png", "images/カイン.png", "images/門.png"];
     
     // Set the images' src attributes
     images.forEach((img, index) => {
