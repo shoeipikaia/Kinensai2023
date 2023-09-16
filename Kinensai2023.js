@@ -1,3 +1,45 @@
+// Function to set the images' src attributes on page load
+function setImagesSrc() {
+    const images = document.querySelectorAll('.gift-box img');
+    const availableImages = ["images/頭囚正方形.png", "images/カイン.png"];
+    
+    // Set the images' src attributes
+    images.forEach((img, index) => {
+        if (index !== 4) {
+            const randomImage = availableImages[Math.floor(Math.random() * availableImages.length)];
+            img.src = randomImage;
+        }
+    });
+}
+
+// Call the function on page load
+window.addEventListener('load', setImagesSrc);
+// Function to randomize the images except the center one
+function randomizeImages() {
+    const images = document.querySelectorAll('.gift-box img');
+    const middleImage = images[4].src;  // The center image
+    let otherImages = Array.from(images).filter((img, index) => index !== 4).map(img => img.src);
+    
+    // Shuffle the other images
+    for (let i = otherImages.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [otherImages[i], otherImages[j]] = [otherImages[j], otherImages[i]];
+    }
+    
+    // Update the images' src attributes
+    images.forEach((img, index) => {
+        if (index === 4) {
+            img.src = middleImage;
+        } else {
+            img.src = otherImages.shift();
+        }
+    });
+}
+
+// Call the function on page load
+window.addEventListener('load', randomizeImages);
+
+
 // カウントダウンタイマーの設定
 const endTimes = [
     new Date(2023, 8, 17, 12, 0, 0).getTime(),
@@ -34,7 +76,7 @@ const interval = setInterval(updateCountdown, 1000);
 
 function updateProgressBar() {
     const now = new Date().getTime();
-    const distance = endTime - now;
+    const distance = endTimes - now;
     const totalDuration = 72 * 60 * 60 * 1000; // 72時間
     const progress = 100 - (distance / totalDuration) * 100;
 
@@ -76,3 +118,31 @@ interactivity: {
 },
 retina_detect: true
 });
+
+// Run adjustLayout on page load and on window resize
+window.addEventListener('load', adjustLayout);
+window.addEventListener('resize', adjustLayout);
+
+
+function adjustLayout() {
+    const baseElement = document.querySelector('.base');
+    const baseWidth = baseElement.offsetWidth;
+
+    // Calculate the image size (e.g., if base width is 600px, set image size to 100px)
+    const imageSize = baseWidth / 5;  // Adjust this calculation as needed
+    document.documentElement.style.setProperty('--dynamic-image-size', `${imageSize}px`);
+
+    // Calculate the gap based on the base width and image size
+    const numberOfImages = 3;  // Number of images in a row
+    const gap = (baseWidth - (numberOfImages * imageSize)) / (numberOfImages + 1);
+    document.documentElement.style.setProperty('--dynamic-gap', `${gap}px`);
+}
+
+
+function showContainer() {
+    document.querySelector('.container').style.display = 'block';
+    document.querySelector('.gift-box-grid').style.display = 'none';
+}
+
+
+
