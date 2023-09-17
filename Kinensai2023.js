@@ -20,7 +20,7 @@ document.querySelector('body').querySelectorAll('*').forEach(element => {
 // Function to set the images' src attributes on page load
 function setImagesSrc() {
     const images = document.querySelectorAll('.gift-box img');
-    const availableImages = ["images/頭囚正方形.png", "images/カイン.png", "images/門.png"];
+    const availableImages = ["images/頭囚正方形.png", "images/カイン.png"];
     
     // Set the images' src attributes
     images.forEach((img, index) => {
@@ -184,4 +184,22 @@ function showContainer() {
         },
         retina_detect: true
         });
+}
+
+
+
+
+
+
+
+
+// Function to copy the link to the clipboard
+function copyLink() {
+    const textArea = document.createElement('textarea');
+    textArea.value = 'https://shoeipikaia.github.io/Kinensai2023/';
+    document.body.appendChild(textArea);
+    textArea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textArea);
+    alert('リンクがコピーされました！');
 }
