@@ -172,3 +172,41 @@ body {
 .kanji {
     font-family: 'Noto Sans SC', sans-serif;
 }
+
+
+
+/* Styles for the new share section */
+.share-section {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.copy-button {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.line-button {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #06c755;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.copy-button:hover {
+    background-color: #555;
+}
+
+.line-button:hover {
+    background-color: #06c755;
+}
